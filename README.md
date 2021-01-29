@@ -1,2 +1,2 @@
 # 👑 Empress
-Package manager for Windows PowerShell
+A Package manager for Windows PowerShell
