@@ -29,6 +29,5 @@ An alias exists too: ```gemp [PackageName]```
 or as alias:  
 ```gemp firefox```  
 **Thats it!**  
-   
 *Now it will download the installation script and executes it which will then download the program and install it silently.*  
 You can find all available packagaes in the [SoftwarePackages](https://github.com/Neocky/Empress/tree/main/SoftwarePackages) folder.
