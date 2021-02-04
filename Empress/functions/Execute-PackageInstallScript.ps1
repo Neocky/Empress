@@ -15,12 +15,17 @@ function startPackageInstallScript {
     )
     $validInstallScriptPath = Test-Path $pathToInstallScript
     if ($validInstallScriptPath -eq $true) {
-        Write-Host "Execute Empress Installation Script"#:            $nameofPackage"
-        Start-Process powershell $pathToInstallScript -Verb RunAs <#-WindowStyle Hidden#> -Wait
-        deleteInstallationScript $pathToInstallScript
-        Write-Host "Succesfully installed Empress Package" -ForegroundColor Green
+        Write-Host "Execute Empress Installation Script"
+        Try {
+            Start-Process powershell $pathToInstallScript -Verb RunAs -WindowStyle Hidden -Wait
+            deleteInstallationScript $pathToInstallScript
+            Write-Host "Succesfully installed Empress Package" -ForegroundColor Green
+        } catch {
+            Write-Warning "Package couldn't be installed"
+            Write-Host "Skip installation of Empress Package" -ForegroundColor Red -BackgroundColor Black
+            deleteInstallationScript $pathToInstallScript
+        }
     } else {
-        Write-Debug "Couldn't find installation script" #-ForegroundColor Yellow
         Write-Host "Skip installation of Empress Package" -ForegroundColor Red -BackgroundColor Black
         deleteInstallationScript $pathToInstallScript
     }
