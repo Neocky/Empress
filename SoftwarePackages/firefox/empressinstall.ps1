@@ -7,7 +7,7 @@ This scirpt will download and install the latest firefox version
 #>
 $empressFolder = "C:\Empress\firefox"
 $downloadlink = "https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
-$argumentList = "/s"
+$argumentList = "/s /InstallDirectoryPath=$empressFolder /DesktopShortcut=false"
 
 function installPackage {
     [CmdletBinding()]
@@ -16,7 +16,7 @@ function installPackage {
         [Parameter()][String]$url,
         [Parameter()][String]$arguments
     )
-    $installerPath = $setupFolder + "\setup.exe"
+    $installerPath = $setupFolder + "\empresssetup.exe"
     $webBrowser = New-Object System.Net.WebClient
     Try {
         $webBrowser.DownloadFile($url, $installerPath)
