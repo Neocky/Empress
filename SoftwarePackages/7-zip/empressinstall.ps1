@@ -8,7 +8,7 @@ This scirpt will download and install the latest stable 7-zip version
 #>
 $empressFolder = "C:\Empress\7-zip"
 $downloadlink = "https://7-zip.org/a/7z1900-x64.exe"
-$argumentList = "/S /D=$empressFolder"
+$argumentList = "/S /D='"'$empressFolder'"'"
 
 function installPackage {
     [CmdletBinding()]
