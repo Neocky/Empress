@@ -5,6 +5,8 @@ A simple package manager written as a Windows PowerShell module.
 This is a simple package manager written in PowerShell.  
 If run, it will download an unattended installation script of the specific program and executes the PowerShell script.  
 The PowerShell script will then download and silently install the specific program.   
+Deletion of packages is possible too.
+All packages get installed here: ```C:\Empress\PACKAGENAME\```  
 Packages are named after their folder in which their installation script is.  
 All available software packages are in the [SortwarePackages](https://github.com/Neocky/Empress/tree/main/SoftwarePackages) Folder.
 
@@ -31,3 +33,14 @@ or as alias:
 **Thats it!**  
 *Now it will download the installation script and executes it which will then download the program and install it silently.*  
 You can find all available packagaes in the [SoftwarePackages](https://github.com/Neocky/Empress/tree/main/SoftwarePackages) folder.
+
+## All commands
+#### Install an Empress package (all packages [here](https://github.com/Neocky/Empress/tree/main/SoftwarePackages)):  
+```Get-EmpPackage [PackageName]```  
+Alias:   ```gemp [PackageName]```  
+#### Uninstall a previously installed Empress package:  
+```Remove-EmpPackage [PackageName]```  
+Alias:   ```remp [PackageName]```  
+#### Show all installed Empress packages:  
+```Show-EmpPackages```  
+Alias:   ```semp```  
