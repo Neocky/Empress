@@ -1,14 +1,13 @@
-<#
+﻿<#
 .SYNOPSIS
-Executes the 7-zip uninstaller.exe.
+Executes the adobereaderdc uninstaller.exe.
 
 .DESCRIPTION
-This scirpt will uninstall the installed 7-zip version.
-
+This scirpt will uninstall the installed adobereaderdc version.
 #>
-$empressFolder = "C:\Empress\7-zip"
-$uninstallerExe = "\Uninstall.exe"
-$argumentList = "/S"
+#$empressFolder = "C:\Empress\adobereaderdc"
+$uninstallerExe = "$env:systemroot\system32\msiexec.exe"
+$argumentList = "/x {AC76BA86-7AD7-1031-7B44-AC0F074E4100} /qn"
 
 function uninstallPackage {
     [CmdletBinding()]
@@ -17,7 +16,7 @@ function uninstallPackage {
         [Parameter()][String]$uninstaller,
         [Parameter()][String]$arguments
     )
-    $uninstallerPath = $setupFolder + $uninstaller
+    $uninstallerPath = $uninstaller <#$setupFolder +#>
     Try {
         Start-Process -FilePath $uninstallerPath -ArgumentList $arguments -Verb RunAs -Wait
     } catch {
