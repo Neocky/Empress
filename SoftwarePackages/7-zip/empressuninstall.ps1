@@ -23,6 +23,7 @@ function uninstallPackage {
     } catch {
         Exit
     }
+    Start-Sleep -Seconds 10
 }
 
 uninstallPackage -setupFolder $empressFolder -uninstaller $uninstallerExe  -arguments $argumentList
