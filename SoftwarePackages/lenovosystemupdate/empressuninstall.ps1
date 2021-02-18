@@ -19,10 +19,10 @@ function uninstallPackage {
     $uninstallerPath = $setupFolder + $uninstaller
     Try {
         Start-Process -FilePath $uninstallerPath -ArgumentList $arguments -Verb RunAs -Wait
-        Start-Sleep -Seconds 45
     } catch {
         Exit
     }
+    Start-Sleep -Seconds 45
 }
 
 uninstallPackage -setupFolder $empressFolder -uninstaller $uninstallerExe  -arguments $argumentList
