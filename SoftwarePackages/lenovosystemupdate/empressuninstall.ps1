@@ -19,6 +19,7 @@ function uninstallPackage {
     $uninstallerPath = $setupFolder + $uninstaller
     Try {
         Start-Process -FilePath $uninstallerPath -ArgumentList $arguments -Verb RunAs -Wait
+        Start-Sleep -Seconds 45
     } catch {
         Exit
     }
