@@ -6,8 +6,8 @@ Executes the lenovosystemupdate uninstaller.exe.
 This scirpt will uninstall the installed lenovosystemupdate version.
 #>
 $empressFolder = "C:\Empress\lenovosystemupdate"
-$uninstallerExe = "\unins000.exe.exe"
-$argumentList = "/s"
+$uninstallerExe = "\unins000.exe"
+$argumentList = "/VERYSILENT"
 
 function uninstallPackage {
     [CmdletBinding()]
@@ -22,7 +22,6 @@ function uninstallPackage {
     } catch {
         Exit
     }
-    Start-Sleep -Seconds 45
 }
 
 uninstallPackage -setupFolder $empressFolder -uninstaller $uninstallerExe  -arguments $argumentList
